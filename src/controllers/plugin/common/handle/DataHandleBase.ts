@@ -272,7 +272,7 @@ export abstract class DataHandleBase {
      * @param asc - 默认升序
      */
     static sortMemos(memosList: INewMemos, asc: boolean) {
-        memosList.sort((a, b) => {
+        memosList.sort((a: {updateTime: string | number | Date;}, b: {updateTime: string | number | Date;}) => {
             const timeA = new Date(a.updateTime).getTime();
             const timeB = new Date(b.updateTime).getTime();
             return asc ? timeA - timeB : timeB - timeA;
